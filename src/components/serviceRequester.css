@@ -1,0 +1,171 @@
+
+/* serviceRequester.css */
+
+.requester-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #e0f2fe, #f3e8ff);
+  position: relative;
+}
+
+.requester-container {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.requester-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #4a5568;
+}
+
+.input-group {
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #718096;
+}
+
+.input-field,
+.search-enhanced {
+  width: 100%;
+  font-size: 16px;
+  padding: 6px 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-field:focus,
+.search-enhanced:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+/* Navigation button top-left */
+.go-provider {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Centered search button */
+.center-search-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.search-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+
+.services-list {
+  margin-top: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.service-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.service-item:hover {
+  background-color: #f0f0f0;
+}
+
+.service-item.disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.no-results {
+  padding: 8px 12px;
+  color: #999;
+}
+
+.message {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.message.error {
+  color: #e53e3e;
+}
+
+.message.success {
+  color: #38a169;
+}
+.hash-box {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.hash-box h4 {
+  margin-bottom: 16px;
+  color: #334155;
+  font-size: 1.2rem;
+}
+
+.hash-input, .hash-method {
+  width: 100%;
+  padding: 6px 4px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+}
+
+.hash-method {
+  background-color: white;
+}

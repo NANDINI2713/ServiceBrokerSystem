@@ -1,0 +1,268 @@
+.provider-screen {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e0f2fe, #f3e8ff);
+  padding: 20px;
+  position: relative;
+}
+
+
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.requester-nav {
+  background-color: #6366f1;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.provider-container {
+  background: white;
+  max-width: 500px;
+  margin: 80px auto 40px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.provider-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.input-field:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.provider-button {
+  padding: 12px 24px;
+  background: linear-gradient(to right, #4ade80, #22c55e);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.provider-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.provider-message {
+  margin-top: 16px;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+.services-list-box {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.list-title {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #4a5568;
+}
+
+.services-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.services-header,
+.services-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 16px;
+  border-radius: 6px;
+}
+
+.services-header {
+  background-color: #cbd5e1;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.services-row {
+  background-color: #f1f5f9;
+  align-items: center;
+}
+
+.remove-btn {
+  background: #ef4444;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.1s ease;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+}
+
+.provider-message {
+  margin-top: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+  transition: opacity 0.1s ease;
+}
+
+.provider-message.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  /* border: 1px solid #10b981; */
+}
+
+.provider-message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  /* border: 1px solid #ef4444; */
+}
+
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logout-nav {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.logout-nav:hover {
+  background-color: #db9797;
+  transform: scale(1.05);
+}
+
+/* Add to serviceProvider.css or a global CSS file */
+
+.otp-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #e0f2fe, #f3e8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.otp-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.otp-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.center-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.provider-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.provider-button:hover {
+  background-color: #0056b3;
+}
+
+.provider-message.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.provider-message.error {
+  color: red;
+  margin-top: 10px;
+}
+
