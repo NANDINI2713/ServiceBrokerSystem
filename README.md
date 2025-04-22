@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+## Service Broker System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack distributed service broker application allowing service providers to register services (e.g., hash generator, random number generator) and requesters to search and invoke them. The system includes authentication, two-factor verification via OTP, and role-based routing.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+🔐 User Authentication (Signup & Login)
 
-### `npm start`
+🧪 OTP-based Two-Factor Authentication for secure service registration/removal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+⚙️ Service Provider Interface to add and manage services
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🔍 Service Requester Interface to search and invoke services
 
-### `npm test`
+📤 Dynamic Invocation of microservices over HTTP (Hash Generator, RNG, etc.)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🗂️ Services are isolated per provider and cannot be overwritten
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend: React.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend: Node.js + Express
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Database: MySQL
 
-### `npm run eject`
+Microservices:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Hash Value Generator (port 5001)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Random Number Generator (port 5002)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## How It Works
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. User Signup/Login
 
-## Learn More
+Users create an account using id, email, and password.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Passwords are hashed using bcrypt and stored securely.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Provider Authentication + OTP
 
-### Code Splitting
+After login, the service provider requests an OTP via /generateOtp.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+OTP is displayed on the console and must be entered before accessing the dashboard.
 
-### Analyzing the Bundle Size
+3. Service Registration/Removal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Providers can add or remove services using their user ID and OTP.
 
-### Making a Progressive Web App
+Duplicate services (same name and port) are not allowed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Requester Interface
 
-### Advanced Configuration
+Requesters search services (e.g., random or hash) and invoke them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+For hashValueGenerator, users enter input text and select a hash algorithm.
 
-### Deployment
+5. Dynamic Routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+On invocation, the broker dynamically forwards the request to the corresponding service based on IP & port.
 
-### `npm run build` fails to minify
+## Example Services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Random Number Generator
+Port: 5002
+Endpoint: /random
+Method: GET
+Output: { "number": 42 }
+
+2. Hash Value Generator
+Port: 5001
+Endpoint: /hash
+Method: POST
+Input: { "input": "hello", "method": "md5" }
+Output: { "hash": "5d41402abc4b2a76b9719d911017c592" }
+
+## Setup Instructions
+
+## 1. Clone the Repository
+
+git clone https://github.com/yourusername/service-broker-app.git
+
+cd service-broker-app
+
+## 2. Install Dependencies
+
+npm install
+
+## 3. Configure MySQL
+
+CREATE DATABASE service_broker;
+
+CREATE TABLE users (
+  id VARCHAR(50) PRIMARY KEY,
+  email VARCHAR(100),
+  passwordHash VARCHAR(255)
+);
+
+CREATE TABLE services (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  serviceName VARCHAR(100),
+  ip VARCHAR(50),
+  port INT,
+  userId VARCHAR(50),
+  FOREIGN KEY (userId) REFERENCES users(id)
+);
+
+## 4. Start the Microservices
+
+### In separate terminals:
+node hashService.js
+
+node randomService.js
+
+## 5. Start the Broker Server
+
+node broker.js
+
+## 6. Start the React Frontend
+
+npm start
+
+## Demo Credentials
+
+Use dummy credentials to test:
+
+Provider:
+
+ID: provider1
+Email: p1@example.com
+Password: pass123
+
+## Feedback & Contributions
+Feel free to open issues or pull requests. Contributions and suggestions are welcome!
+
